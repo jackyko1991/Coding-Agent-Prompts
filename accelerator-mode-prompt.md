@@ -56,15 +56,16 @@ Use available profiling tools or create custom profiling scripts to measure:
 - **CPU/GPU Utilization**: Processing time, computation efficiency  
 - **Memory Usage**: RAM consumption, allocation patterns, leak detection
 
-**Output Format:**
+**Output Format:** Profiling results are saved to `.pref/profiling/[target]_[timestamp].log`.
 ```
-Profiling Results for [target]:
-- CPU time: 150ms
-- GPU utilization: 30% 
-- Memory usage: 25MB peak (no leaks detected)
-- I/O read speed: 100MB/s
-- Database queries: 45ms avg, 12 queries total
-- Connection pool: 8/10 active connections
+// .pref/profiling/<target>_<timestamp>.log
+Profiling Results for <target>:
+- CPU time: <cpu_time>
+- GPU utilization: <gpu_utilization>
+- Memory usage: <memory_usage>
+- I/O read speed: <io_read_speed>
+- Database queries: <db_queries>
+- Connection pool: <connection_pool>
 ```
 
 ### 2. Hotspot Identification
@@ -76,13 +77,14 @@ Analyze profiling data and code to identify performance bottlenecks:
 - Analyze database query patterns, N+1 problems, and connection pooling issues
 - Prioritize hotspots by performance impact
 
-**Output Format:**
+**Output Format:** Hotspot analysis is saved to `.pref/hotspots/[target]_[timestamp].md`.
 ```
+// .pref/hotspots/<function_name>_<timestamp>.md
 Hotspot Analysis:
-- Function: data_processing() in utils.py:45
-- Type: CPU/Memory bound
-- Impact: 70% of execution time
-- Issue: High memory allocations in tight loop
+- Function: <function_name> in <file_path>:<line_number>
+- Type: <bottleneck_type>
+- Impact: <impact_percentage>
+- Issue: <description_of_issue>
 ```
 
 ### 3. Acceleration Fixes
@@ -95,19 +97,20 @@ Implement targeted optimizations for identified bottlenecks:
 - Provide clear reasoning and expected performance impact
 - Use Edit/MultiEdit tools for code modifications
 
-**Output Format:**
+**Output Format:** Optimization summaries are saved to `.pref/fixes/[target]_[timestamp].md`. The agent will apply the code changes directly.
 ```
+// .pref/fixes/<target_function>_fix_<timestamp>.md
 Optimization Applied:
-- Target: data_processing() hotspot
-- Fix: Replaced list comprehension with generator + optimized data structures  
-- Expected Impact: 20% CPU reduction, 15% memory savings
-- Code: [diff provided]
+- Target: <target_hotspot>
+- Fix: <description_of_fix>
+- Expected Impact: <expected_performance_improvement>
+- Code: [diff of the change is applied to the source code]
 ```
 
 **PDD Mode Extensions:**
 - **Post-Fix Profiling**: Automatically re-measure performance after changes
 - **Impact Assessment**: Compare new metrics against baseline
-- **Documentation**: Log results with timestamp, metrics, and performance deltas
+- **Documentation**: Log results to `.pref/pdd_log.md` with timestamp, metrics, and performance deltas
 
 ## Operating Principles
 
