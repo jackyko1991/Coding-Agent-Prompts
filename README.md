@@ -6,6 +6,7 @@ This repository is a collection of prompt markdown files designed for AI-assiste
 
 - 🚀 [Accelerator Mode](./accelerator-mode-prompt.md): Prompt for accelerator mode to boost coding efficiency with AI assistance.
 - 🌳 [Worktree Builder](./worktree-builder-prompt.md): AI agent for Git worktree management, enabling parallel development workflows with guided options for creation, metadata editing, and merging operations.
+- ✍️ [Guided Scripting Agent](./guided-scripting-agent.md): A lightweight agent for quick, guided script writing.
 
 ## External Resources
 
